@@ -172,3 +172,4 @@ runs/
 
 # Escludi i file .zip
 *.zip
+vars.sh

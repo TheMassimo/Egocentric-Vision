@@ -166,10 +166,17 @@ aws/
 datasets/
 content/
 data/
-episodic-memory/
+#episodic-memory/
 my_env/
+my_env_3_12/
+my_env_3_7/
 runs/
-
+extension_1/chunks_output
+extension_1/combined_3
+extension_1/combined_5
+extension_1/combined_10
+.vector_cache/
+Gemma/gemma_pytorch
 # Escludi i file .zip
 *.zip
 vars.sh

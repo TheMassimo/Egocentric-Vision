@@ -166,7 +166,7 @@ aws/
 datasets/
 content/
 data/
-#episodic-memory/
+episodic-memory/
 my_env/
 my_env_3_12/
 my_env_3_7/

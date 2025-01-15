@@ -2,11 +2,10 @@ import os
 
 # Percorso del file JSON
 current = os.getcwd()
-root_dir=os.path.dirname(current)
-filePath = os.path.join(root_dir, "datasets/ego4d_data/v1/annotations/narration.json")
+filePath = os.path.join(current, "datasets/ego4d_data/v1/annotations/narration.json")
 
 # Crea una cartella per i file di output, se non esiste
-output_dir = os.path.join(current, "chunks_outputssss")
+output_dir = os.path.join(current, "extension_1/raw_chunks_outputs")
 os.makedirs(output_dir, exist_ok=True)
 
 # Specifica il numero di caratteri da leggere alla volta

@@ -8,7 +8,7 @@ current = os.getcwd()
 chunks_dir = os.path.join(current, "extension_1/chunks_output")
 
 # Numero di narrazioni da includere per ogni chunk
-n_narrations = 10
+n_narrations = 3
 
 # Crea una directory di output per i risultati combinati
 combined_dir = os.path.join(current, f"extension_1/combined_{n_narrations}")
@@ -43,6 +43,10 @@ for chunk_file in os.listdir(chunks_dir):
                     # Seleziona N narrazioni consecutive
                     selected_narrations = narrations[start_index:start_index + n_narrations]
                     
+                    # Sostituisci "#C C" con "the person" nei narration_text
+                    for narration in selected_narrations:
+                        narration["narration_text"] = narration["narration_text"].replace("#C C", "the person")
+                    
                     # Aggiungi al dizionario finale
                     final_data[chunk_id] = {
                         "narration_pass_1": {
@@ -55,3 +59,24 @@ with open(output_file, "w", encoding="utf-8") as f:
     json.dump(final_data, f, indent=4)
 
 print(f"File combinato generato nella cartella: {combined_dir}")
+
+# Crea la mappa dei narration_text
+narration_map = {}
+
+for video_uid, content in final_data.items():
+    narrations = content.get("narration_pass_1", {}).get("narrations", [])
+    
+    # Estrai i narration_text sostituendo "#C C" con "the person"
+    narration_texts = [
+        narration["narration_text"] for narration in narrations
+    ]
+    
+    # Aggiungi alla mappa
+    narration_map[video_uid] = narration_texts
+
+# Salva la mappa nella stessa directory del file combinato
+narration_map_file = os.path.join(combined_dir, "narration_map.json")
+with open(narration_map_file, "w", encoding="utf-8") as output_file:
+    json.dump(narration_map, output_file, ensure_ascii=False, indent=4)
+
+print(f"File narration_map salvato nella cartella: {combined_dir}")

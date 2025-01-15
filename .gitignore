@@ -175,6 +175,7 @@ extension_1/chunks_output
 extension_1/combined_3
 extension_1/combined_5
 extension_1/combined_10
+extension_1/raw_chunks_outputs
 .vector_cache/
 Gemma/gemma_pytorch
 # Escludi i file .zip

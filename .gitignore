@@ -169,6 +169,7 @@ data/
 episodic-memory/
 my_env/
 my_env_3_12/
+new_env_3_12/
 my_env_3_7/
 runs/
 extension_1/chunks_output
@@ -181,3 +182,5 @@ Gemma/gemma_pytorch
 # Escludi i file .zip
 *.zip
 vars.sh
+
+.vscode/settings.json
